@@ -23,7 +23,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
 
 # testing extras
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
-	socat cppcheck
+	socat cppcheck python-pygments
 
 # user setup
 RUN useradd docker -d /home/docker -m -s /bin/bash &&\
