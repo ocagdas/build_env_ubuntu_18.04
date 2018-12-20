@@ -7,7 +7,7 @@ RUN cd /bin && rm sh && ln -s bash sh
 RUN apt-get update -y
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
-	apt-utils
+	--no-install-recommends apt-utils
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
 	vim bash-completion sudo
