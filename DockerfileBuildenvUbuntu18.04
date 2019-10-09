@@ -27,7 +27,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
 
 # others
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
-	kpartx cifs-utils
+	kpartx cifs-utils rsync
 	
 # user setup
 RUN useradd docker -d /home/docker -m -s /bin/bash &&\
