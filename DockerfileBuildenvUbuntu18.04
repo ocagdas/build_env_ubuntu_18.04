@@ -14,19 +14,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
 	vim bash-completion sudo
 
-# build-essential and other build/make package
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
-	build-essential make cmake cmake-curses-gui python3 \
-	flex bison automake bc
-
-# nice to have extras
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
-	curl wget libspeex-dev sox libogg-dev
-
-# testing extras
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
-	socat cppcheck python-pygments
-
+# creating user with matching host id on the fly magic
 RUN echo ""
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 
@@ -45,6 +33,20 @@ RUN gpg --verify /usr/local/bin/gosu.asc
 RUN rm /usr/local/bin/gosu.asc
 RUN chmod +x /usr/local/bin/gosu
 RUN chmod +x /usr/local/bin/entrypoint.sh
+# end of creating user with matching host id on the fly magic
+
+# build-essential and other build/make package
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
+	build-essential make cmake cmake-curses-gui python3 \
+	flex bison automake bc
+
+# nice to have extras
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
+	curl wget libspeex-dev sox libogg-dev
+
+# testing extras
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
+	socat cppcheck python-pygments
 
 # others
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
