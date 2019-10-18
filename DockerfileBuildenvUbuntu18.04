@@ -38,7 +38,7 @@ RUN chmod +x /usr/local/bin/entrypoint.sh
 # build-essential and other build/make package
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
 	build-essential make cmake cmake-curses-gui python3 \
-	flex bison automake bc
+	flex bison automake bc module-init-tools
 
 # nice to have extras
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
